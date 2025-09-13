@@ -54,3 +54,31 @@ int main()
 
     return 0;
 }
+
+#include <bits/stdc++.h>
+using namespace std;
+
+const int N = 1001;
+
+int par[N], children[N], isPar[N];
+
+int main()
+{
+    int n, flag = 1;
+    cin >> n;
+
+    for (int i = 2; i <= n; i++)
+        cin >> par[i];
+
+    for (int i = n; i >= 1; i--)
+    {
+        if (isPar[i] == 0)
+            children[par[i]]++;
+        else
+            flag &= (children[i] >= 3);
+
+        isPar[par[i]] = 1;
+    }
+
+    cout << (flag ? "Yes" : "No");
+}
