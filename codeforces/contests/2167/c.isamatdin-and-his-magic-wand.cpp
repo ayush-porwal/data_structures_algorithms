@@ -17,7 +17,9 @@ int main()
     while (t--)
     {
         int n;
-        vector<int> nums;
+        cin >> n;
+
+        vector<int> nums(n);
         int nume = 0, numo = 0;
         for (auto &num : nums)
         {
