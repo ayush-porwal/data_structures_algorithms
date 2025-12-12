@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 4.1.0)
 project(data_structures_algorithms VERSION 0.1.0 LANGUAGES CXX)
 
 # set C++ standard globally
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Include template directory for all targets
