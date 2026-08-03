@@ -2,34 +2,30 @@
 
 using namespace std;
 
-int main()
-{
-    int n, x;
+int main() {
+  int n, x;
 
-    cin >> n >> x;
+  cin >> n >> x;
 
-    vector<int> coins(n, 0);
+  vector<int> coins(n, 0);
 
-    for (int i = 0; i < n; i++)
-    {
-        cin >> coins[i];
+  for (int i = 0; i < n; i++) {
+    cin >> coins[i];
+  }
+
+  vector<long long int> dp(x + 1, 0);
+
+  dp[0] = 1;
+
+  for (int i = 1; i <= x; i++) {
+    for (auto coin : coins) {
+      if (i - coin >= 0)
+        dp[i] += dp[i - coin];
     }
+    dp[i] %= 1000000007;
+  }
 
-    vector<long long int> dp(x + 1, 0);
+  cout << dp[x];
 
-    dp[0] = 1;
-
-    for (int i = 1; i <= x; i++)
-    {
-        for (auto coin : coins)
-        {
-            if (i - coin >= 0)
-                dp[i] += dp[i - coin];
-        }
-        dp[i] %= 1000000007;
-    }
-
-    cout << dp[x];
-
-    return 0;
+  return 0;
 }

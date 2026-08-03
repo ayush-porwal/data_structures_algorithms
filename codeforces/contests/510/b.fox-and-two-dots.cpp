@@ -6,51 +6,42 @@ bool flag = false;
 vector<int> dx = {-1, 1, 0, 0};
 vector<int> dy = {0, 0, -1, 1};
 
-void dfs(vector<vector<char>> &colorMatrix, vector<vector<bool>> &visited, int x, int y, int parentX, int parentY)
-{
+void dfs(vector<vector<char>> &colorMatrix, vector<vector<bool>> &visited,
+         int x, int y, int parentX, int parentY) {
   visited[x][y] = true;
 
-  for (int i = 0; i < 4; i++)
-  {
+  for (int i = 0; i < 4; i++) {
     int xNew = x + dx[i];
     int yNew = y + dy[i];
-    if (xNew >= 0 && xNew < colorMatrix.size() && yNew >= 0 && yNew < colorMatrix[0].size() && colorMatrix[xNew][yNew] == colorMatrix[x][y])
-    {
-      if (visited[xNew][yNew] && (xNew != parentX || yNew != parentY))
-      {
+    if (xNew >= 0 && xNew < colorMatrix.size() && yNew >= 0 &&
+        yNew < colorMatrix[0].size() &&
+        colorMatrix[xNew][yNew] == colorMatrix[x][y]) {
+      if (visited[xNew][yNew] && (xNew != parentX || yNew != parentY)) {
         flag = true;
         return;
-      }
-      else if (!visited[xNew][yNew])
-      {
+      } else if (!visited[xNew][yNew]) {
         dfs(colorMatrix, visited, xNew, yNew, x, y);
       }
     }
   }
 }
 
-int main()
-{
+int main() {
   int n, m;
   cin >> n >> m;
 
   vector<vector<char>> colorMatrix(n, vector<char>(m));
   vector<vector<bool>> visited(n, vector<bool>(m, false));
 
-  for (int i = 0; i < n; i++)
-  {
-    for (int j = 0; j < m; j++)
-    {
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
       cin >> colorMatrix[i][j];
     }
   }
 
-  for (int i = 0; i < n; i++)
-  {
-    for (int j = 0; j < m; j++)
-    {
-      if (!visited[i][j])
-      {
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      if (!visited[i][j]) {
         dfs(colorMatrix, visited, i, j, -1, -1);
       }
     }

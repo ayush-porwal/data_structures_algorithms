@@ -1,4 +1,3 @@
-class TrieNode
-{
-    int is TrieNode *
+class TrieNode {
+  int is TrieNode *
 }
