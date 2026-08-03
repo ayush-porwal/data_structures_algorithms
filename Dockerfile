@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     sudo \
     build-essential \
     gdb \
+    clangd \
+    clang-format \
     cmake \
     ninja-build \
     python3 \
