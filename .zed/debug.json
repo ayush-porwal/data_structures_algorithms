@@ -1,0 +1,22 @@
+[
+    {
+        "label": "Debug current C++ file",
+        "adapter": "GDB",
+        "request": "launch",
+        "program": "$ZED_DIRNAME/$ZED_STEM",
+        "cwd": "$ZED_DIRNAME",
+        "args": [],
+        "build": {
+            "command": "/usr/bin/g++",
+            "args": [
+                "-std=gnu++23",
+                "-g",
+                "-O0",
+                "$ZED_FILE",
+                "-o",
+                "$ZED_DIRNAME/$ZED_STEM"
+            ],
+            "cwd": "$ZED_DIRNAME"
+        }
+    }
+]
